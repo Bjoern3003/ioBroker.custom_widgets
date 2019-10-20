@@ -1,0 +1,120 @@
+<script type="text/javascript" src="widgets/custom_widgets/js/custom_widgets.js"></script>
+
+<link rel="stylesheet" type="text/css" href="widgets/custom_widgets/css/custom_widgets.css" />
+
+<script id="tplMaterialContainerView"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="custom_widgets"
+        data-vis-name="Custom view in widget"
+        data-vis-type="container"
+        data-vis-prev='<img src="widgets/basic/img/Prev_ContainerView.png"></img>'
+        data-vis-attrs="contains_view/views;cols/nselect,1,2,3,4,5,6,7,8;float/checkbox">
+    <div class="vis-widget vis-widget mdui-cols-<%= this.data.attr('cols') %> <% if (this.data.float == true) { %> mdui-float <% } %> mdui-tile mdui-main-bg vis-tpl-basic-view in widget custom_widgets_container_view <%== this.data.attr('class') %>" style="width:400px; height: 270px;" id="<%= this.data.attr('wid') %>">
+        <% if (vis.editMode) { %>
+            <div class="editmode-helper"></div>
+        <% } %>
+        <div data-vis-contains="<%= this.data.attr('contains_view') %>" class="vis-widget-body vis-view-container">
+            <div class="vis-widget mdui-main-bg mdui-title mdui-card vis-tpl-basic-HTML custom_widgets_container_view_name">
+                <div class="vis-widget-body"><%= this.data.attr('name') %></div>
+            </div>
+            <div class="vis-widget <%== this.data.attr('class') %>" style="width: 200px; height: 130px;" id="<%= this.data.attr('wid') %>">
+                <div class="vis-widget-body" <%= (el) -> vis.binds.basic.htmlRefresh(el, this.data.attr('html'), data.attr("refreshInterval")) %>>
+                    <%== this.data.attr('html') %>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="tplBelDimmer"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="custom_widgets"
+        data-vis-name="Custom BelDimmer"
+        data-vis-type="ctrl,slider,input"
+        data-vis-prev='<div id="prev_tplBelDimmer" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="overflow:visible;height:60px;width:250px;"></div></div>'
+        data-vis-update-style="true"
+        data-vis-attrs="oid[nothing_selected]/id;min[0];max[255];step[10];md-color/nselect,default,red,indigo,blue,teal,green,lime,yellow,amber,brown,grey,bluegrey;"
+    >
+	<div data-oid="<%= this.data.attr('oid') %>" class="vis-widget tplBelDimmer_wrapper <%= this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="height:60px;width:250px;">
+		<div class="img-bulb" style="width:25px; height:25px;">
+			<div data-oid="<%= this.data.attr('oid') %>" id="<%= this.data.attr('wid') %>_img_bulb" class="vis-widget-body mdui-<%= this.data.attr('md-color') %>" style="width:100%; height:100%" data-src="/icons-mfd-svg/light_light.svg" <%= (el) -> vis.binds.custom_widgets.beldimmer.init(el, this) %>></div>
+		</div>
+		<div class="widget-name vis-tpl-basic-HTML">
+			<div class="vis-widget-body">
+				<div class="mdui-card mdui-state box-shadow-white mdui-<%= this.data.attr('md-color') %>"><%= this.data.attr('name') %></div>
+			</div>
+		</div>
+		<div class="mdui-input mdui-<%= this.data.attr('md-color') %> vis-tpl-jqui-Input" id="<%= this.data.attr('wid') %>_inputwrapper">
+			<div class="vis-widget-body">
+				<input type="text" name="<%= this.data.attr('wid') %>_input" id="<%= this.data.attr('wid') %>_input" value="" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.jqueryui.input(el, data.digits, data.asString); %> />
+			</div>
+		</div>
+		<div id="<%= this.data.attr('wid') %>_sliderwrapper" data-vis-resizable='{"minHeight":23, "maxHeight":23}' class="vis-widget mdui-slider mdui-<%= this.data.attr('md-color') %>-acc">
+			<div class="vis-widget-body <%== this.data.attr('class') %>">
+				<div class="sliderJQUI" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-oid2="<%= this.data.attr('oid-2') %>" data-oid-working="<%= this.data.attr('oid-working') %>"  data-oid2-working="<%= this.data.attr('oid-2-working') %>"<%= (el) -> vis.binds.jqueryui.slider(el, {min:parseFloat(data.min),max:parseFloat(data.max),step:parseFloat(data.step), inverted: data.inverted, submitmethod: data.submitmethod}) %> /></div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="tplBelDimmerOLD"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="custom_widgets"
+        data-vis-name="Custom BelDimmer OLD"
+        data-vis-type="ctrl,slider,input"
+        data-vis-prev='<div id="prev_tplBelDimmerOLD" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="overflow:visible;height:60px;width:250px;"></div></div>'
+        data-vis-update-style="true"
+        data-vis-attrs="oid[nothing_selected]/id;min[0];max[255];step[10];md-color/nselect,default,red,indigo,blue,teal,green,lime,yellow,amber,brown,grey,bluegrey;"
+>
+	<div data-oid="<%= this.data.attr('oid') %>" class="vis-widget tplBelDimmer_wrapper <%= this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="height:60px;width:250px;">
+		<div class="img-bulb" style="width:25px; height:25px;">
+			<div data-oid="<%= this.data.attr('oid') %>" id="<%= this.data.attr('wid') %>_img_bulb" class="vis-widget-body mdui-<%= this.data.attr('md-color') %>" style="width:100%; height:100%" data-src="/icons-mfd-svg/light_light.svg" <%= (el) -> vis.binds.custom_widgets.beldimmer.init(el, this) %>></div>
+		</div>
+		<div class="widget-name vis-tpl-basic-HTML">
+			<div class="vis-widget-body">
+				<div class="mdui-card mdui-state box-shadow-white mdui-<%= this.data.attr('md-color') %>"><%= this.data.attr('name') %></div>
+			</div>
+		</div>
+		<div class="mdui-input mdui-<%= this.data.attr('md-color') %> vis-tpl-jqui-Input" id="<%= this.data.attr('wid') %>_inputwrapper">
+			<div class="vis-widget-body">
+				<input type="text" name="<%= this.data.attr('wid') %>_input" id="<%= this.data.attr('wid') %>_input" value="" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.jqueryui.input(el, data.digits, data.asString); %> />
+			</div>
+		</div>
+		<div id="<%= this.data.attr('wid') %>_sliderwrapper" data-vis-resizable='{"minHeight":23, "maxHeight":23}' class="vis-widget mdui-slider mdui-<%= this.data.attr('md-color') %>-acc">
+			<div class="vis-widget-body <%== this.data.attr('class') %>">
+				<div class="sliderJQUI" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-oid2="<%= this.data.attr('oid-2') %>" data-oid-working="<%= this.data.attr('oid-working') %>"  data-oid2-working="<%= this.data.attr('oid-2-working') %>"<%= (el) -> vis.binds.jqueryui.slider(el, {min:parseFloat(data.min),max:parseFloat(data.max),step:parseFloat(data.step), inverted: data.inverted, submitmethod: data.submitmethod}) %> /></div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="tplBelBool"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="custom_widgets"
+        data-vis-name="Custom BelBool"
+        data-vis-type="ctrl,checkbox"
+        data-vis-prev='<div id="prev_tplBelBool" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="overflow:visible;height:60px;width:250px;"></div></div>'
+        data-vis-update-style="true"
+        data-vis-attrs="oid[nothing_selected]/id;md-color/nselect,default,red,indigo,blue,teal,green,lime,yellow,amber,brown,grey,bluegrey;"
+    >
+	<div data-oid="<%= this.data.attr('oid') %>" class="vis-widget tplBelBool_wrapper <%= this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="height:30px;width:250px;">
+		<div class="img-bulb" style="width:25px; height:25px;">
+			<div data-oid="<%= this.data.attr('oid') %>" id="<%= this.data.attr('wid') %>_img_bulb" class="vis-widget-body mdui-<%= this.data.attr('md-color') %>" style="width:100%; height:100%" data-src="/icons-mfd-svg/light_light.svg" <%= (el) -> vis.binds.custom_widgets.belbool.init(el, this) %>></div>
+		</div>
+		<div class="widget-name vis-tpl-basic-HTML">
+			<div class="vis-widget-body">
+				<div class="mdui-card mdui-state box-shadow-white mdui-<%= this.data.attr('md-color') %>"><%= this.data.attr('name') %></div>
+			</div>
+		</div>
+		<div class="widget-checkbox mdui-switch mdui-<%= this.data.attr('md-color') %>-acc">
+			<div class="vis-widget-body">
+				<input type="checkbox" name="<%= this.data.attr('wid') %>_checkbox" id="<%= this.data.attr('wid') %>_checkbox" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.basic.checkbox(el) %>/>
+				<label for="<%= this.data.attr('wid') %>_checkbox"><label>
+			</div>
+		</div>
+	</div>
+</script>

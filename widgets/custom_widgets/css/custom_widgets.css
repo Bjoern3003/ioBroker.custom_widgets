@@ -1,0 +1,14 @@
+.custom_widgets_container_view {}
+.custom_widgets_container_view  .custom_widgets_container_view_name {top: 0 !important;left: 50% !important;width: auto !important;transform: translate(-50%, -50%);box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset;background: #424242;border-radius: 5px;margin:0;padding:5px 20px;font-size:12px !important;}
+
+.tplBelDimmer_wrapper {}
+.tplBelDimmer_wrapper .img-bulb {position: absolute; top:0;left:0;}
+.tplBelDimmer_wrapper .widget-name {position: absolute; top:0;left:35px;width:150px;text-align:center;font-size:12px;}
+.tplBelDimmer_wrapper .mdui-slider {position: absolute;top:30px;left:0px;width:200px;}
+.tplBelDimmer_wrapper .mdui-input {position: absolute;top:0px;left:210px;height:40px;}
+.tplBelDimmer_wrapper .mdui-input input {text-align:center;width:40px;}
+
+.tplBelBool_wrapper {}
+.tplBelBool_wrapper .img-bulb {position: absolute; top:0;left:0;}
+.tplBelBool_wrapper .widget-name {position: absolute; top:0;left:35px;width:150px;text-align:center;font-size:12px;}
+.tplBelBool_wrapper .widget-checkbox {position:absolute;width: 48px;height: 30px;overflow:hidden;top:0;left:202px;}

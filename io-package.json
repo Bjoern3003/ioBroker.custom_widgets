@@ -1,0 +1,32 @@
+{
+    "common": {
+        "name": "custom_widgets",
+        "version": "1.0.0",
+        "title": "Eigene Widgets",
+        "desc": {
+            "de": "Eigene Widgets für das Material Design"
+        },
+        "platform": "Javascript/Node.js",
+        "loglevel": "info",
+        "enabled": true,
+        "mode": "once",
+        "readme": "https://github.com/Bjoern3003/ioBroker.custom_widgets/blob/master/README.md",
+        "authors": [
+            "bjoern3003 <bjoern3003@gmail.com>"
+        ],
+        "localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
+        "license": "MIT",
+        "dependencies": [
+            "vis"
+        ],
+        "onlyWWW": true,
+        "singleton": true,
+        "type": "visualization-widgets",
+        "restartAdapters": [
+            "vis"
+        ],
+        "noConfig": true
+    },
+    "native": {},
+    "instanceObjects": []
+}
